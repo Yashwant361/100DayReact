@@ -50,16 +50,15 @@ const App = () => {
   const [src, setSrc] = useState(null)
   const [option, setOption] = useState("male")
 
-  const generateNumForPerson = ()=>{
-    const r = Math.floor(Math.random() * 99)+1
+  const generateNumForPerson = () => {
+    const r = Math.floor(Math.random() * 99) + 1
     return r
   }
 
-  const generate = ()=>{
-    const obj = data.find((item)=>item.value === option)
+  const generate = () => {
+    const obj = data.find((item) => item.value === option)
     const url = obj.url
-    if(option === "male" || option === "female")
-    {
+    if (option === "male" || option === "female") {
       const imageUrl = `${url}/${generateNumForPerson()}.jpg`
       setSrc(imageUrl)
     }
@@ -70,12 +69,12 @@ const App = () => {
     }
   }
 
-  const onOptionChange = (e)=>{
+  const onOptionChange = (e) => {
     const value = e.target.value
     setOption(value)
   }
 
-  const download = (url)=>{
+  const download = (url) => {
     const a = document.createElement("a")
     a.href = url
     a.download = `${Date.now()}.jpg`
@@ -83,22 +82,22 @@ const App = () => {
     a.remove()
   }
 
-  const copy = (url)=>{
+  const copy = (url) => {
     navigator.clipboard.writeText(url)
-    toast.success("Image url copied", {position: "top-center"})
+    toast.success("Image url copied", { position: "top-center" })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     generate()
-  }, [option]) 
+  }, [option])
 
   return (
     <div className='animate__animated animate__fadeIn overflow-hidden min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center text-white'>
       <div className='animate__animated animate__slideInUp animate__faster gap-6 flex flex-col items-center w-full max-w-md rounded-2xl shadow-xl backdrop-blur-xl border border-slate-700 p-10'>
         <div className='bg-white rounded-full'>
-          <img 
+          <img
             src={src || "/avt.jpg"}
-            className='w-32 h-32 rounded-full shadow-lg object-cover'  
+            className='w-32 h-32 rounded-full shadow-lg object-cover'
           />
         </div>
         <div className='text-center'>
@@ -107,17 +106,17 @@ const App = () => {
         </div>
 
         <div className='w-full space-y-4'>
-            <select className='bg-slate-900/60 w-full p-3 rounded-xl' value={option} onChange={onOptionChange}>
-              {
-                data.map((item, index)=>(
-                  <option value={item.value} key={index}>{item.label}</option>
-                ))
-              }
-            </select>
-            
-            <div className='bg-slate-900/60 w-full p-3 rounded-xl'>
-              {src}
-            </div>
+          <select className='bg-slate-900/60 w-full p-3 rounded-xl' value={option} onChange={onOptionChange}>
+            {
+              data.map((item, index) => (
+                <option value={item.value} key={index}>{item.label}</option>
+              ))
+            }
+          </select>
+
+          <div className='bg-slate-900/60 w-full p-3 rounded-xl'>
+            {src}
+          </div>
         </div>
 
         <div className='flex w-full gap-4'>
@@ -126,12 +125,12 @@ const App = () => {
             Change
           </button>
 
-          <button onClick={()=>download(src)} className='flex-1 bg-gradient-to-r from-green-500 to-cyan-600 font-medium rounded-lg py-2 hover:scale-105 trasition-transform'>
+          <button onClick={() => download(src)} className='flex-1 bg-gradient-to-r from-green-500 to-cyan-600 font-medium rounded-lg py-2 hover:scale-105 trasition-transform'>
             <i className="ri-download-line mr-1"></i>
             Download
           </button>
 
-          <button onClick={()=>copy(src)} className='flex-1 bg-gradient-to-r from-orange-500 to-amber-600 font-medium rounded-lg py-2 hover:scale-105 trasition-transform'>
+          <button onClick={() => copy(src)} className='flex-1 bg-gradient-to-r from-orange-500 to-amber-600 font-medium rounded-lg py-2 hover:scale-105 trasition-transform'>
             <i className="ri-file-copy-line mr-1"></i>
             Copy
           </button>
@@ -139,7 +138,10 @@ const App = () => {
       </div>
       <ToastContainer />
     </div>
+
+
   )
+
 }
 
 export default App
