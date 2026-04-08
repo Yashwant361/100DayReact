@@ -33,7 +33,7 @@ function Login() {
         <>
             <div className='login-container'>
                 <form className='login-form' onSubmit={handleSubmit}>
-                    <h2>Login</h2>
+                    <h2 className='login-head'>Login</h2>
                     {error && <p className='error'>{error}</p>}
 
                     <input

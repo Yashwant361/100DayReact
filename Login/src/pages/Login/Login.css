@@ -5,6 +5,10 @@
   align-items: center;
   background: #f4f4f4;
 }
+.login-head{
+   background: rgb(75, 15, 15);
+   font-family: 'Courier New', Courier, monospace;
+}
 
 .login-form {
   background: white;

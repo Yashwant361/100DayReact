@@ -49,7 +49,7 @@ function Register() {
         <>
             <div className="register-container">
                 <form className="register-form" onSubmit={handleSubmit}>
-                    <h2>Register</h2>
+                    <h2 className='reg-head'>Register</h2>
                     {error && <p className='error'>{error}</p>}
                     {success && <p className='success'>{success}</p>}
 
