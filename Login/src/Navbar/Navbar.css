@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: black;
+  color: white;
+}
+
+.navbar button {
+  padding: 5px 10px;
+}

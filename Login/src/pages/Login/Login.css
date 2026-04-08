@@ -1,0 +1,39 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f4;
+}
+
+.login-form {
+  background: white;
+  padding: 30px;
+  width: 300px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.login-form button {
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.link {
+  margin-top: 10px;
+  color: blue;
+  cursor: pointer;
+}
